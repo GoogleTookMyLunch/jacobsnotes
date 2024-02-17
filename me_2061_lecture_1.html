@@ -1,0 +1,1016 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lecture 1: Linear algebra preliminaries &#8212; jacob%27s notes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'me_2061_lecture_1';</script>
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Syllabus" href="me_2061_syllabus.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="home.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="jacob%27s notes - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="jacob%27s notes - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="home.html">
+                    Welcome to jacob%27s notes
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reduced Order Modeling</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="me_2061_syllabus.html">Syllabus</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lecture 1: Linear algebra preliminaries</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/GoogleTookMyLunch/jacobsnotes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/GoogleTookMyLunch/jacobsnotes/issues/new?title=Issue%20on%20page%20%2Fme_2061_lecture_1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/me_2061_lecture_1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lecture 1: Linear algebra preliminaries</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-independence">Linear independence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-example">NumPy Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-products">Inner products</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-product-properties-and-definitions">Inner product properties and definitions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-orthogonal-functions">Example: Orthogonal functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lecture-1-linear-algebra-preliminaries">
+<h1>Lecture 1: Linear algebra preliminaries<a class="headerlink" href="#lecture-1-linear-algebra-preliminaries" title="Permalink to this heading">#</a></h1>
+<section id="linear-independence">
+<h2>Linear independence<a class="headerlink" href="#linear-independence" title="Permalink to this heading">#</a></h2>
+<p>If a set of vectors are not a linear combination of any of the vectors in the set, then the system is linearly independent; otherwise the system is linearly dependent.</p>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h3>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+Ex. 1</label><div class="sd-tab-content docutils">
+<br> 
+<p>Consider: <span class="math notranslate nohighlight">\(\mathbf{v}_1 = \begin{bmatrix} 1 \\ 3 \\ -2 \\ \end{bmatrix}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{v}_2 = \begin{bmatrix} -3 \\ -9 \\ 6 \\ \end{bmatrix}\)</span>. Find <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> such that: <span class="math notranslate nohighlight">\(\alpha{}\mathbf{v}_{1} + \beta{}\mathbf{v}_{2} = 0\)</span></p>
+<p>From inspection it is clear that:</p>
+<div class="math notranslate nohighlight">
+\[
+-3\mathbf{v}_{1} = \mathbf{v}_{2}
+\]</div>
+<p>Setting <span class="math notranslate nohighlight">\(\alpha = -3\)</span> and <span class="math notranslate nohighlight">\(\beta = 1\)</span> gives:</p>
+<div class="math notranslate nohighlight">
+\[
+-3\mathbf{v}_{1} + \mathbf{v}_{2} = 0
+\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Answer</p>
+<p>Therefore this set of vectors is <strong>linearly dependent</strong>, and the <strong>dimension is 1</strong>.</p>
+</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+Ex. 2</label><div class="sd-tab-content docutils">
+<br> 
+<p>Consider:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{v}_1 = 
+\begin{bmatrix}
+  1 \\
+  3 \\
+  -2
+\end{bmatrix}
+\qquad
+\mathbf{v}_2 = 
+\begin{bmatrix}
+  -3 \\
+  -9 \\
+  7
+\end{bmatrix}
+\end{split}\]</div>
+<p>There is not a clear choice of <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\beta\)</span> for the linear combination of <span class="math notranslate nohighlight">\(\mathbf{v}_1\)</span> and <span class="math notranslate nohighlight">\(\mathbf{v}_2\)</span> which results in <span class="math notranslate nohighlight">\(\mathbf{0}\)</span>.</p>
+<p>From <a class="reference external" href="https://math.libretexts.org/Bookshelves/Linear_Algebra/Understanding_Linear_Algebra_(Austin)/02%3A_Vectors_matrices_and_linear_combinations/2.02%3A_Matrix_multiplication_and_linear_combinations">2.2 Matrix multiplication and linear combinations by David Austin</a>:</p>
+<blockquote>
+<div><p>The product of a matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> by a vector <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> will be the linear combination of the columns of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> using the components <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> as weights.</p>
+<p>If <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is an <span class="math notranslate nohighlight">\(m \times{} n\)</span> matrix, then <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> must be an <span class="math notranslate nohighlight">\(n\text{-dimensional}\)</span> vector, and the product <span class="math notranslate nohighlight">\(\mathbf{Ax}\)</span> will be an <span class="math notranslate nohighlight">\(m\text{-dimensional}\)</span> vector.</p>
+</div></blockquote>
+<p>If <span class="math notranslate nohighlight">\(\mathbf{A} = \Big[ \mathbf{v}_1 \quad \mathbf{v}_2 \quad \ldots \quad \mathbf{v}_n \Big]\)</span> and <span class="math notranslate nohighlight">\(\mathbf{x} = \begin{bmatrix} c_1 \\ c_2 \\ \vdots \\ c_n \end{bmatrix}\)</span>, then <span class="math notranslate nohighlight">\(\mathbf{Ax} = c_1 \mathbf{v}_1 + c_2 \mathbf{v}_2 + \ldots + c_n \mathbf{v}_n\)</span>.</p>
+<p>Let</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{A} = 
+\begin{bmatrix}
+  1 &amp; -3 \\
+  3 &amp; -9 \\
+  2 &amp; 7
+\end{bmatrix}
+\qquad
+\mathbf{x} = 
+\begin{bmatrix}
+  \alpha \\
+  \beta \\
+\end{bmatrix}
+\end{split}\]</div>
+<p>Using Gaussian Elimination to solve the system of equations:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[
+\begin{array}{rr|r}
+  1 &amp; -3 &amp; 0 \\
+  3 &amp; -9 &amp; 0 \\
+  2 &amp; 7 &amp; 0
+\end{array}
+\right]
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\mathrm{R}_2: \mathrm{R}_2 - 3\mathrm{R}_1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{array}{rrr}
+  1 &amp; -3 &amp; 0 \\
+  0 &amp; 0 &amp; 0 \\
+  2 &amp; 7 &amp; 0
+\end{array}
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\mathrm{R}_3: \mathrm{R}_3 - 2\mathrm{R}_1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[
+\begin{array}{rrr}
+  1 &amp; -3 &amp; 0 \\
+  0 &amp; 0 &amp; 0 \\
+  0 &amp; 1 &amp; 0
+\end{array}
+\right]
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\mathrm{R}_1: \mathrm{R}_1 + 3\mathrm{R}_3\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[
+\begin{array}{rr|r}
+  1 &amp; 0 &amp; 0 \\
+  0 &amp; 0 &amp; 0 \\
+  0 &amp; 1 &amp; 0
+\end{array}
+\right]
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\mathrm{R}_2: \text{Swap } \mathrm{R}_2 \text{ and } \mathrm{R}_3\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[
+\begin{array}{rr|r}
+  1 &amp; 0 &amp; 0 \\
+  0 &amp; 1 &amp; 0 \\
+  0 &amp; 0 &amp; 0
+\end{array}
+\right]
+\end{split}\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Answer</p>
+<p>Therefore <span class="math notranslate nohighlight">\(\alpha = \beta = 0\)</span>, this set of vectors is <strong>linearly independent</strong>, and the <strong>dimension is 2</strong>.</p>
+</div>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-2">
+Ex. 3</label><div class="sd-tab-content docutils">
+<br> 
+<p>Consider:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{v}_1 = 
+\begin{bmatrix}
+  1 \\
+  3 \\
+  -2 
+\end{bmatrix}
+\qquad
+\mathbf{v}_2 = 
+\begin{bmatrix}
+  -3 \\
+  -9 \\
+  6
+\end{bmatrix}
+\qquad
+\mathbf{v}_3 = 
+\begin{bmatrix}
+  -2 \\
+  -6 \\
+  4
+\end{bmatrix}
+\end{split}\]</div>
+<p>A quick way to check if the vectors are linearly dependent is to see if the ratios of the elements of the vectors are equal.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{v}_1 ./ \mathbf{v}_2 =
+\begin{bmatrix}
+  -1/3 \\
+  -3/9 \\
+  -2/6
+\end{bmatrix} =
+\begin{bmatrix}
+  -1/3 \\
+  -1/3 \\
+  -1/3
+\end{bmatrix} =
+-\frac{1}{3}
+\begin{bmatrix}
+  1 \\
+  1 \\
+  1
+\end{bmatrix}
+\end{split}\]</div>
+<p>Therefore this set of vectors is <strong>linearly dependent</strong>.  In fact:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{v}_1 ./ \mathbf{v}_3 =
+\begin{bmatrix}
+  -1/2 \\
+  -3/6 \\
+  -2/4
+\end{bmatrix} = 
+\begin{bmatrix}
+  -1/2 \\
+  -1/2 \\
+  -1/2
+\end{bmatrix} = 
+-\frac{1}{2}
+\begin{bmatrix}
+  1 \\
+  1 \\
+  1
+\end{bmatrix}
+\end{split}\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Answer</p>
+<p>Therefore this set of vectors is <strong>linearly dependent</strong>, and the <strong>dimension is 1</strong>.</p>
+</div>
+</div>
+</div>
+<section id="numpy-example">
+<h4>NumPy Example<a class="headerlink" href="#numpy-example" title="Permalink to this heading">#</a></h4>
+<p>Consider:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{v}_1 =
+\begin{bmatrix}
+  1 \\
+  3 \\
+  -2 
+\end{bmatrix}
+\qquad
+\mathbf{v}_2 =
+\begin{bmatrix}
+  0 \\
+  1 \\
+  2
+\end{bmatrix}
+\qquad
+\mathbf{v}_3 = 
+\begin{bmatrix}
+  1 \\
+  4 \\
+  0
+\end{bmatrix}
+\end{split}\]</div>
+<p>Another way to check for linear dependence is to compute the determinant. From <a class="reference external" href="https://math.libretexts.org/Bookshelves/Linear_Algebra/Interactive_Linear_Algebra_(Margalit_and_Rabinoff)/04%3A_Determinants/4.01%3A_Determinants-_Definition">4.1: Determinants - Definition by Dan Margalit &amp; Joseph Rabinoff</a>:</p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> be a square matrix. If the rows or columns of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> are linearly dependent, then <span class="math notranslate nohighlight">\(\det \big( \mathbf{A} \big) = 0\)</span>.</p>
+</div></blockquote>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If <span class="math notranslate nohighlight">\(\det \big( \mathbf{A} \big)\)</span> does equal 0, that does not mean necessarily that the columns of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> are linearly dependent. It could mean that the rows are linearly dependent - so further investigation is warranted.</p>
+</div>
+<p>Utilizing Numpy to calculate:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\det \big( \mathbf{A} \big) = 
+\begin{vmatrix}
+  1 &amp; 0 &amp; 1 \\
+  3 &amp; 1 &amp; 4 \\
+  -2 &amp; 2 &amp; 0
+\end{vmatrix}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Define three column vectors as 1D NumPy arrays</span>
+<span class="n">vector1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">vector2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">vector3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># Stack the column vectors into a matrix (each vector becomes a column)</span>
+<span class="n">matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">vector1</span><span class="p">,</span> <span class="n">vector2</span><span class="p">,</span> <span class="n">vector3</span><span class="p">))</span>
+
+<span class="c1"># Calculate the determinant of the matrix</span>
+<span class="n">determinant</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+
+<span class="c1"># Print the result</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Determinant: </span><span class="si">{</span><span class="n">determinant</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Determinant: 4.4408920985006143e-16
+</pre></div>
+</div>
+</div>
+</div>
+<p>The determinant is 0 so either the columns or rows are linearly dependent. Utilizing SymPy to find the Row-Reduced Echelon Form of the matrix</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="k">as</span> <span class="nn">sp</span>
+
+<span class="c1"># Convert the NumPy matrix to a SymPy matrix</span>
+<span class="n">matrix_sp</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">matrix</span><span class="p">)</span>
+
+<span class="c1"># Find the RREF of the SymPy matrix</span>
+<span class="n">rref_matrix</span> <span class="o">=</span> <span class="n">matrix_sp</span><span class="o">.</span><span class="n">rref</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RREF Matrix:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">pretty</span><span class="p">(</span><span class="n">rref_matrix</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RREF Matrix:
+
+⎡1  0  1⎤
+⎢       ⎥
+⎢0  1  1⎥
+⎢       ⎥
+⎣0  0  0⎦
+</pre></div>
+</div>
+</div>
+</div>
+<p>The RREF matrix gives:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+  1 &amp; 0 &amp; 1 \\
+  0 &amp; 1 &amp; 1 \\
+  0 &amp; 0 &amp; 0
+\end{bmatrix}
+\begin{bmatrix}
+  \alpha \\
+  \beta \\
+  \gamma
+\end{bmatrix} &amp; =
+\mathbf{0} \\ \\
+\begin{bmatrix}
+  \alpha + \gamma \\
+  \beta + \gamma \\
+  \mathbf{0}
+\end{bmatrix}
+&amp; = \mathbf{0}
+\end{split}\]</div>
+<p>Therefore if <span class="math notranslate nohighlight">\(\alpha = \beta \wedge \gamma = -\alpha\)</span> the result of the linear combination is 0.</p>
+<p>Let <span class="math notranslate nohighlight">\(\alpha = 1\)</span>, <span class="math notranslate nohighlight">\(\beta = 1\)</span>, and <span class="math notranslate nohighlight">\(\gamma = -1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+  1 \\
+  3 \\
+  -2
+\end{bmatrix} +
+\begin{bmatrix}
+  0 \\
+  1 \\
+  2
+\end{bmatrix} - 
+\begin{bmatrix}
+  1 \\
+  4 \\
+  0
+\end{bmatrix} = 
+\mathbf{0}
+\end{split}\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Answer</p>
+<p>Therefore this set of vectors is <strong>linearly dependent</strong>, and the <strong>dimension is 2</strong>.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="inner-products">
+<h2>Inner products<a class="headerlink" href="#inner-products" title="Permalink to this heading">#</a></h2>
+<p>The minimum number of vectors needed to represent the space. Anything that comes out of an inner product is a scaler.  Remember the “dot product” is just an inner product but all inner products are not “dot products”.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-3">
+Euclidean inner product</label><div class="sd-tab-content docutils">
+<br> 
+<div class="math notranslate nohighlight">
+\[
+\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u}^{T} \mathbf{v}
+\]</div>
+</div>
+<input id="sd-tab-item-4" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-4">
+Weighted inner product</label><div class="sd-tab-content docutils">
+<br>
+<div class="math notranslate nohighlight">
+\[
+\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u}^{T} \mathbf{W} \mathbf{v}
+\]</div>
+</div>
+</div>
+<section id="inner-product-properties-and-definitions">
+<h3>Inner product properties and definitions<a class="headerlink" href="#inner-product-properties-and-definitions" title="Permalink to this heading">#</a></h3>
+<dl class="simple myst">
+<dt>Conjugate Symmetry</dt><dd><p><span class="math notranslate nohighlight">\(\langle \mathbf{u}, \mathbf{v} \rangle = \langle \mathbf{v}, \mathbf{u} \rangle\)</span></p>
+</dd>
+<dt>Positivity</dt><dd><p><span class="math notranslate nohighlight">\(\langle \mathbf{u}, \mathbf{u} \rangle \geq 0\)</span></p>
+</dd>
+<dt>Positive Definiteness</dt><dd><p><span class="math notranslate nohighlight">\(\langle \mathbf{u}, \mathbf{u} \rangle = 0 \quad \Longleftrightarrow \quad \mathbf{u} = 0\)</span></p>
+</dd>
+<dt>Linearity in the First Slot</dt><dd><p><span class="math notranslate nohighlight">\(\langle \mathbf{u}, \mathbf{v} + \mathbf{w} \rangle = \langle \mathbf{u}, \mathbf{v} \rangle + \langle \mathbf{u}, \mathbf{w} \rangle\)</span></p>
+</dd>
+<dt>Length</dt><dd><p><span class="math notranslate nohighlight">\(\lVert \mathbf{u} \rVert = \langle \mathbf{u}, \mathbf{u} \rangle^{1/2}\)</span></p>
+</dd>
+<dt>Angle</dt><dd><p><span class="math notranslate nohighlight">\(\cos{\alpha} = \frac{\langle \mathbf{u}, \mathbf{v} \rangle}{\lVert \mathbf{u} \rVert \lVert \mathbf{v} \rVert}\)</span></p>
+</dd>
+<dt>Orthogonality</dt><dd><p><span class="math notranslate nohighlight">\(\mathbf{u}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> are orthogonal if: <span class="math notranslate nohighlight">\(\langle \mathbf{u}, \mathbf{v} \rangle = 0 \; \implies \; \cos{\alpha} = 0 \; \implies \alpha = 0^{\circ}\)</span></p>
+</dd>
+<dt>Orthonormality</dt><dd><p><span class="math notranslate nohighlight">\(\mathbf{u}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> are orthonormal if: <span class="math notranslate nohighlight">\( \langle \mathbf{u}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v} \rangle = 0\)</span>, <span class="math notranslate nohighlight">\(\lVert \mathbf{u} \rVert = 1\)</span>, and <span class="math notranslate nohighlight">\(\lVert \mathbf{v} \rVert = 1\)</span></p>
+</dd>
+</dl>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-5">
+Vectors</label><div class="sd-tab-content docutils">
+<br>
+<p>Given:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{u} = 
+\begin{bmatrix}
+  u_1 \\
+  u_2 \\
+  \vdots \\
+  u_n
+\end{bmatrix}
+\qquad
+\mathbf{v} =
+\begin{bmatrix}
+  v_1 \\
+  v_2 \\
+  \vdots \\
+  v_n
+\end{bmatrix}
+\end{split}\]</div>
+<p><strong>Euclidean Inner Product</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\langle \mathbf{u}, \mathbf{v} \rangle = \mathbf{u}^{T} \mathbf{v}
+\]</div>
+<p><strong>Length</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\lVert \mathbf{u} \rVert = \bigg( u_{1}^{2} + u_{2}^{2} + \ldots u_{N}^{2} \bigg)^{1/2}
+\]</div>
+<p><strong>Angle</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\cos{\alpha} = \frac{\mathbf{u}^{T} \mathbf{v}}{\lVert \mathbf{u} \rVert \lVert \mathbf{v} \rVert}
+\]</div>
+</div>
+<input id="sd-tab-item-6" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-6">
+Continuous functions</label><div class="sd-tab-content docutils">
+<br>
+<p><strong>Inner product</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\langle \text{u}(x), \text{v}(x) \rangle = \int\limits_a^b\text{u}(x)\text{v}(x)\,dx
+\]</div>
+<p><strong>Norm</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\lVert \text{u}(x) \rVert = \langle \text{u}(x), \text{u}(x) \rangle^{1/2} = \Biggl[\int\limits_a^b\text{u}(x)\text{v}(x)\,dx)\Bigg]^{1/2}
+\]</div>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-2" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-7">
+Matrices</label><div class="sd-tab-content docutils">
+<br>
+<p>Given:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{A}|_{\text{nxm}} \quad \mathbf{B}|_{\text{nxm}}
+\]</div>
+<p><strong>Inner product</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\langle \mathbf{A}, \mathbf{B} \rangle = \sum_{\text{j}=1}^\infty\sum_{\text{i}=1}^\infty A_{\text{ij}}B_{\text{ij}}
+\]</div>
+<p><strong>Frobenius Norm</strong></p>
+<div class="math notranslate nohighlight">
+\[
+\lVert \mathbf{A} \rVert_{F} := \Big[\langle \mathbf{A}, \mathbf{A} \rangle\Big]^{1/2}
+\]</div>
+</div>
+</div>
+<section id="example-orthogonal-functions">
+<h4>Example: Orthogonal functions<a class="headerlink" href="#example-orthogonal-functions" title="Permalink to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[
+\langle \sin{x}, \cos{x} \rangle = \int\limits_{-\pi}^\pi\sin{x}\cos{x}\,dx = 0
+\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Answer</p>
+<p>Therefore this set of functions is <strong>linearly independent</strong>, and the functions are <strong>orthogonal</strong>.</p>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="me_2061_syllabus.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Syllabus</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-independence">Linear independence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-example">NumPy Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-products">Inner products</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-product-properties-and-definitions">Inner product properties and definitions</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-orthogonal-functions">Example: Orthogonal functions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jacob Cunningham
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+MIT License
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
