@@ -1,0 +1,10 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: home
+parts:
+- caption: Reduced Order Modeling
+  chapters:
+  - file: me_2061_syllabus
+  - file: me_2061_lecture_1
