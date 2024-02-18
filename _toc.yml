@@ -8,3 +8,5 @@ parts:
   chapters:
   - file: me_2061_syllabus
   - file: me_2061_lecture_1
+    sections:
+    - file: me_2061_hw_1

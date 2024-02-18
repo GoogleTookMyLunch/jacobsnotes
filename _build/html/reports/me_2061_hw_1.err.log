@@ -1,0 +1,51 @@
+Traceback (most recent call last):
+  File "C:\Users\jjcun\anaconda3\envs\jacobsnotes\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\jjcun\anaconda3\envs\jacobsnotes\Lib\site-packages\nbclient\client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jjcun\anaconda3\envs\jacobsnotes\Lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\jjcun\anaconda3\envs\jacobsnotes\Lib\asyncio\base_events.py", line 685, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\jjcun\anaconda3\envs\jacobsnotes\Lib\site-packages\nbclient\client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\jjcun\anaconda3\envs\jacobsnotes\Lib\site-packages\nbclient\client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\jjcun\anaconda3\envs\jacobsnotes\Lib\site-packages\nbclient\client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# import necessary modules
+import numpy as np
+import matplotlib.pyplot as plt
+from jupyterthemes import jtplot
+
+jtplot.style(theme='onedork', context='notebook', spines=True, grid=True, gridlines='--')
+
+# define domain and range
+x = np.arange(0,2*np.pi, 0.001)
+w = -2*np.sin(x)**2*np.cos(x)-2*np.cos(x)**3
+
+# map the domain to the range
+plt.plot(x, w)
+plt.title("w(x) vs. x")
+plt.xlabel("x")
+plt.ylabel("w(x)")
+plt.show()
+------------------
+
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [1;32mIn[2], line 4[0m
+[0;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
+[0;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mmatplotlib[39;00m[38;5;21;01m.[39;00m[38;5;21;01mpyplot[39;00m [38;5;28;01mas[39;00m [38;5;21;01mplt[39;00m
+[1;32m----> 4[0m [38;5;28;01mfrom[39;00m [38;5;21;01mjupyterthemes[39;00m [38;5;28;01mimport[39;00m jtplot
+[0;32m      6[0m jtplot[38;5;241m.[39mstyle(theme[38;5;241m=[39m[38;5;124m'[39m[38;5;124monedork[39m[38;5;124m'[39m, context[38;5;241m=[39m[38;5;124m'[39m[38;5;124mnotebook[39m[38;5;124m'[39m, spines[38;5;241m=[39m[38;5;28;01mTrue[39;00m, grid[38;5;241m=[39m[38;5;28;01mTrue[39;00m, gridlines[38;5;241m=[39m[38;5;124m'[39m[38;5;124m--[39m[38;5;124m'[39m)
+[0;32m      8[0m [38;5;66;03m# define domain and range[39;00m
+
+[1;31mModuleNotFoundError[0m: No module named 'jupyterthemes'
+
