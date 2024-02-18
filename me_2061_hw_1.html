@@ -1,0 +1,1628 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Homework 1 &#8212; jacob%27s notes</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'me_2061_hw_1';</script>
+    <link rel="shortcut icon" href="_static/favicon.png"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Lecture 1: Linear algebra preliminaries" href="me_2061_lecture_1.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="home.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="jacob%27s notes - Home"/>
+    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="jacob%27s notes - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="home.html">
+                    Welcome to jacob%27s notes
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reduced Order Modeling</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="me_2061_syllabus.html">Syllabus</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="me_2061_lecture_1.html">Lecture 1: Linear algebra preliminaries</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Homework 1</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/GoogleTookMyLunch/jacobsnotes" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/GoogleTookMyLunch/jacobsnotes/issues/new?title=Issue%20on%20page%20%2Fme_2061_hw_1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/me_2061_hw_1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Homework 1</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-calculations">Problem 1 calculations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-calculations">Problem 2 calculations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-calculations">Problem 3 calculations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-calculations">Problem 4 calculations</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="homework-1">
+<h1>Homework 1<a class="headerlink" href="#homework-1" title="Permalink to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>All mathematical calculations are performed by hand.</strong> They are simply displayed using Markdown and <span class="math notranslate nohighlight">\(\mathrm{\LaTeX{}}\)</span>.  Python code, when used, is only used to check hand-calculations or when instructed to do so by the problem prompt.</p>
+<p>Vectors are written in bold lower-case letters (<span class="math notranslate nohighlight">\(\mathbf{v}\)</span>), matrices are written in bold upper-case letters (<span class="math notranslate nohighlight">\(\mathbf{A}\)</span>), and scalers are written as italicized lower-case letters (<span class="math notranslate nohighlight">\(c\)</span>). Unless specified, all elements <span class="math notranslate nohighlight">\(\epsilon \in \mathbb{R}\)</span>.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Answer</p>
+<p>Final answers are formatted like this.</p>
+</div>
+<section id="problem-1">
+<h2>Problem 1<a class="headerlink" href="#problem-1" title="Permalink to this heading">#</a></h2>
+<p>Determine which of the following sets are linearly independent.  For those sets that are linearly dependent, write one of the vectors as a linear combination of the others.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+  \begin{pmatrix}
+    1\\
+    2\\
+    3
+  \end{pmatrix},
+  \;
+  \begin{pmatrix}
+    2\\
+    1\\
+    0
+  \end{pmatrix},
+  \;
+  \begin{pmatrix}
+    1\\
+    5\\
+    9
+  \end{pmatrix}
+\end{bmatrix}
+\qquad
+\qquad
+\begin{bmatrix}
+  \begin{pmatrix}
+    1\\
+    2\\
+    0\\
+    4\\
+    0\\
+    3\\
+    0
+  \end{pmatrix}, 
+  \;
+  \begin{pmatrix}
+    0\\
+    2\\
+    0\\
+    4\\
+    1\\
+    3\\
+    0
+  \end{pmatrix}, 
+  \;
+  \begin{pmatrix}
+    0\\
+    2\\
+    1\\
+    4\\
+    0\\
+    3\\
+    0
+  \end{pmatrix}
+  \text{,}
+  \begin{pmatrix}
+    0\\
+    2\\
+    0\\
+    4\\
+    0\\
+    3\\
+    1
+  \end{pmatrix}
+\end{bmatrix}
+\end{split}\]</div>
+<section id="problem-1-calculations">
+<h3>Problem 1 calculations<a class="headerlink" href="#problem-1-calculations" title="Permalink to this heading">#</a></h3>
+<p>Given <span class="math notranslate nohighlight">\(\mathbf{u}\text{, }\mathbf{v}\text{, }\mathbf{w}\)</span> which occupy space in <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, <span class="math notranslate nohighlight">\(\mathbf{u}\text{, }\mathbf{v}\text{, }\mathbf{w}\)</span> are linearly independent if no other linear combination except <span class="math notranslate nohighlight">\(0\mathbf{u} + 0\mathbf{v} + 0\mathbf{w} = \mathbf{0}\)</span>. Otherwise the vectors are linearly dependent.</p>
+<p>Given:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+  \begin{pmatrix}
+    1\\
+    2\\
+    3
+  \end{pmatrix}
+  \text{,}
+  \begin{pmatrix}
+    2\\
+    1\\
+    0
+  \end{pmatrix}
+  \text{,}
+  \begin{pmatrix}
+    1\\
+    5\\
+    9
+  \end{pmatrix}
+\end{bmatrix}
+\end{split}\]</div>
+<p>let:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{u} = \begin{pmatrix}1\\2\\3\end{pmatrix}\text{,}
+\qquad
+\mathbf{v} = \begin{pmatrix}2\\1\\0\end{pmatrix}\text{,}
+\qquad
+\mathbf{w} = \begin{pmatrix}1\\5\\9\end{pmatrix}\text{,}
+\qquad
+\mathbf{b} = \begin{pmatrix}0\\0\\0\end{pmatrix}\text{,}
+\qquad
+\text{and }
+c\text{, }d\text{, }e \in{} \mathbb{R}
+\end{split}\]</div>
+<p>The set of all linear combinations can be written as <span class="math notranslate nohighlight">\(c\mathbf{u} + d\mathbf{v} + e\mathbf{w}\)</span>.  If the only possible solution to <span class="math notranslate nohighlight">\(c\mathbf{u} + d\mathbf{v} + e\mathbf{w} = 0\)</span> is <span class="math notranslate nohighlight">\(c = d = e = 0\)</span> then the vectors are linearly independent; otherwise they are linearly dependent.</p>
+<p>Since <span class="math notranslate nohighlight">\(\mathbf{Ax}\)</span> is the linear combination of the columns of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>, let:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{A} =
+\begin{bmatrix}
+  1 &amp; 2 &amp; 1 \\
+  2 &amp; 1 &amp; 5 \\
+  3 &amp; 0 &amp; 9 
+\end{bmatrix}
+\text{,}
+\qquad
+\mathbf{x} = 
+\begin{bmatrix}
+  c\\
+  d\\
+  e
+\end{bmatrix}
+\end{split}\]</div>
+<p>Setting <span class="math notranslate nohighlight">\(\mathbf{Ax} = \mathbf{b}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+  1 &amp; 2 &amp; 1 \\
+  2 &amp; 1 &amp; 5 \\
+  3 &amp; 0 &amp; 9
+\end{bmatrix}
+\begin{bmatrix}
+  c \\
+  d \\
+  e
+\end{bmatrix}
+\text{=}
+\begin{bmatrix}
+  0 \\
+  0 \\
+  0
+\end{bmatrix}
+\end{split}\]</div>
+<p>Augmenting matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> with vector <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> and performing Guassian Elimination:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[
+\begin{array}{rrr|r}
+  a_{1,1} &amp; \ldots &amp; \mathbf{a}_{1,m} &amp; \mathbf{b}_{1} \\
+  \vdots &amp; \ddots &amp; \vdots &amp; \vdots \\
+  \mathbf{a}_{n,1} &amp; \ldots &amp; \mathbf{a}_{n,m} &amp; \mathbf{b}_{n}
+\end{array}
+\right]
+\end{split}\]</div>
+<p>Augmented matrix</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[
+\begin{array}{rrr|r}
+  1 &amp; 2 &amp; 1 &amp; 0 \\
+  2 &amp; 1 &amp; 5 &amp; 0 \\
+  3 &amp; 0 &amp; 9 &amp; 0
+\end{array}
+\right]
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\mathrm{R_{2}}: \mathrm{R_{2} - 2R_{1}}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[\begin{array}{rrr|r}
+  1 &amp; 2 &amp; 1 &amp; 0 \\
+  0 &amp; -3 &amp; 3 &amp; 0 \\
+  3 &amp; 0 &amp; 9 &amp; 0
+\end{array}\right]
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\mathrm{R_{3}}: \mathrm{R_{1} - 3R_{1}}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[\begin{array}{rrr|r}
+  1 &amp; 2 &amp; 1 &amp; 0 \\
+  0 &amp; -3 &amp; 3 &amp; 0 \\
+  0 &amp; -6 &amp; 6 &amp; 0
+\end{array}\right]
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+  \mathrm{R_{2}} &amp; : \mathrm{R_{2} \div -3} \\
+  \mathrm{R_{3}} &amp; : \mathrm{R_{2} \div -6}
+\end{align}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[\begin{array}{rrr|r}
+  1 &amp; 2 &amp; 1 &amp; 0 \\
+  0 &amp; 1 &amp; -1 &amp; 0 \\
+  0 &amp; 1 &amp; -1 &amp; 0
+\end{array}\right]
+\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\mathrm{R_{3}}: \mathrm{R_{3} - R_{2}}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[\begin{array}{rrr|r}
+  1 &amp; 2 &amp; 1 &amp; 0 \\
+  0 &amp; 1 &amp; -1 &amp; 0 \\
+  0 &amp; 0 &amp; 0 &amp; 0
+\end{array}\right]
+\end{split}\]</div>
+<p>Row reduced echelon form:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[\begin{array}{rrr|r}
+  1 &amp; 0 &amp; 3 &amp; 0 \\
+  0 &amp; 1 &amp; -1 &amp; 0 \\
+  0 &amp; 0 &amp; 0 &amp; 0
+\end{array}\right]
+\end{split}\]</div>
+<p>Solving for <span class="math notranslate nohighlight">\(c\)</span>, <span class="math notranslate nohighlight">\(d\)</span>, and <span class="math notranslate nohighlight">\(e\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+  1 &amp; 0 &amp; 3 \\
+  0 &amp; 1 &amp; -1 \\
+  0 &amp; 0 &amp; 0
+\end{bmatrix}
+\begin{bmatrix}
+  c \\
+  d \\
+  e
+\end{bmatrix}
+\text{=}
+\begin{bmatrix}
+  c + 3e \\
+  d - e \\
+  0
+\end{bmatrix}
+\text{=}
+\begin{bmatrix}
+  0 \\
+  0 \\
+  0
+\end{bmatrix}
+\end{split}\]</div>
+<p>Solutions:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+d &amp; = e \\
+c &amp; = e/3
+\end{align}
+\end{split}\]</div>
+<p>Let <span class="math notranslate nohighlight">\(c = 3\)</span> then:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+3
+\begin{bmatrix}
+  1 \\
+  2 \\
+  3 \\
+\end{bmatrix} -
+\begin{bmatrix}
+  2 \\
+  1 \\
+  0
+\end{bmatrix} -
+\begin{bmatrix}
+  1 \\
+  5 \\
+  9
+\end{bmatrix}
+\text{=}
+\begin{bmatrix}
+  3 - 2 - 1 \\
+  6 - 1 - 5 \\
+  9 - 0 - 9
+\end{bmatrix}
+\text{=}
+\begin{bmatrix}
+  0 \\
+  0 \\
+  0
+\end{bmatrix}
+\end{split}\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Answer</p>
+<p>Since <span class="math notranslate nohighlight">\(\mathbf{w} \text{=} \mathbf{u} - \mathbf{v}\)</span> <b>The set of vectors are linearly dependent</b>.</p>
+</div>
+<p>Given:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+  \begin{pmatrix}
+    1 \\
+    2 \\
+    0 \\
+    4 \\
+    0 \\
+    3 \\
+    0
+  \end{pmatrix}
+  \text{,}
+  \begin{pmatrix}
+    0 \\
+    2 \\
+    0 \\
+    4 \\
+    1 \\
+    3 \\
+    0
+  \end{pmatrix}
+  \text{,}
+  \begin{pmatrix}
+    0 \\
+    2 \\
+    1 \\
+    4 \\
+    0 \\
+    3 \\
+    0
+  \end{pmatrix}
+  \text{,}
+  \begin{pmatrix}
+    0 \\
+    2 \\
+    0 \\
+    4 \\
+    0 \\
+    3 \\
+    1
+  \end{pmatrix}
+\end{bmatrix}
+\end{split}\]</div>
+<p>let:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{u} = 
+\begin{pmatrix}
+  1 \\
+  2 \\
+  0 \\
+  4 \\
+  0 \\
+  3 \\
+  0
+\end{pmatrix}
+\text{,}
+\qquad
+\mathbf{v} = 
+\begin{pmatrix}
+  0 \\
+  2 \\
+  0 \\
+  4 \\
+  1 \\
+  3 \\
+  0
+\end{pmatrix}
+\text{,}
+\qquad
+\mathbf{w} = 
+\begin{pmatrix}
+  0 \\
+  2 \\
+  1 \\
+  4 \\
+  0 \\
+  3 \\
+  0
+\end{pmatrix}
+\text{,}
+\qquad
+\mathbf{a} = 
+\begin{pmatrix}
+  0 \\
+  2 \\
+  1 \\
+  4 \\
+  0 \\
+  3 \\
+  0
+\end{pmatrix}
+\text{,}
+\qquad
+\mathbf{b} = 
+\begin{pmatrix}
+  0 \\
+  0 \\
+  0 \\
+  0 \\
+  0 \\
+  0 \\
+  0
+\end{pmatrix}
+\text{,}
+\qquad
+\text{and }
+c\text{, }
+d\text{, }
+e\text{, }
+f \in{}
+\mathbb{R}
+\end{split}\]</div>
+<p>Following the same procedure as before…</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[\begin{array}{rrrr|r}
+  1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+  2 &amp; 2 &amp; 2 &amp; 2 &amp; 0 \\
+  0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+  4 &amp; 4 &amp; 4 &amp; 4 &amp; 0 \\
+  0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+  3 &amp; 3 &amp; 3 &amp; 3 &amp; 0 \\
+  0 &amp; 0 &amp; 0 &amp; 1 &amp; 0
+\end{array}\right]
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[\begin{array}{rrrr|r}
+  1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+  1 &amp; 1 &amp; 1 &amp; 1 &amp; 0 \\
+  0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+  1 &amp; 1 &amp; 1 &amp; 1 &amp; 0 \\
+  0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+  1 &amp; 1 &amp; 1 &amp; 1 &amp; 0 \\
+  0 &amp; 0 &amp; 0 &amp; 1 &amp; 0
+\end{array}\right]
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[\begin{array}{rrrr|r}
+  1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+  0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+  0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+  0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+  1 &amp; 1 &amp; 1 &amp; 1 &amp; 0 \\
+  1 &amp; 1 &amp; 1 &amp; 1 &amp; 0 \\
+  1 &amp; 1 &amp; 1 &amp; 1 &amp; 0
+\end{array}\right]
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[\begin{array}{rrrr|r}
+  1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+  0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 \\
+  0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 \\
+  0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 \\
+  0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+  0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+  0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
+\end{array}\right]
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+  1 &amp; 0 &amp; 0 &amp; 0 \\
+  0 &amp; 1 &amp; 0 &amp; 0 \\
+  0 &amp; 0 &amp; 1 &amp; 0 \\
+  0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+  c \\
+  d \\
+  e \\
+  f
+\end{bmatrix}
+\text{=}
+\begin{bmatrix}
+  c \\
+  d \\
+  e \\
+  f
+\end{bmatrix}
+\text{=}
+\begin{bmatrix}
+  0 \\
+  0 \\
+  0 \\
+  0
+\end{bmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[
+c
+\quad
+=
+\quad
+d
+\quad
+=
+\quad
+e
+\quad 
+=
+\quad
+f
+\quad
+=
+\quad
+0
+\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Answer</p>
+<p><b>Therefore the set of vectors are linearly independent</b></p>
+</div>
+</section>
+</section>
+<section id="problem-2">
+<h2>Problem 2<a class="headerlink" href="#problem-2" title="Permalink to this heading">#</a></h2>
+<p>Which of the following sets of functions are linearly dependent?</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\{\sin{x}\text{, }\cos{x}\text{, }x\sin{x}\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\{\exp{x}\text{, }x\exp{x}\text{, }x^{2}\exp{x}\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\{\sin^{2}{x}\text{, }\cos^{2}{x}\text{, }\cos{2x}\}\)</span></p></li>
+</ol>
+<section id="problem-2-calculations">
+<h3>Problem 2 calculations<a class="headerlink" href="#problem-2-calculations" title="Permalink to this heading">#</a></h3>
+<p>Suppose <span class="math notranslate nohighlight">\((c_{1}, c_{2}, t) \in \mathbb{R}\)</span>.  From <a class="reference external" href="https://math.libretexts.org/Bookshelves/Analysis/Supplemental_Modules_(Analysis)/Ordinary_Differential_Equations/3%3A_Second_Order_Linear_Differential_Equations/3.6%3A_Linear_Independence_and_the_Wronskian">LibreTexts Mathematics</a>:
+<br></p>
+<blockquote>
+<div><p>Let <span class="math notranslate nohighlight">\(f(t)\)</span>f and <span class="math notranslate nohighlight">\(g(t)\)</span> be differentiable functions.  Then they are called <em>linearly dependent</em> if there are nonzero constants <span class="math notranslate nohighlight">\(c_1\)</span> and <span class="math notranslate nohighlight">\(c_2\)</span> with <span class="math notranslate nohighlight">\(c_{1}f(t) + c_{2}g(t) = 0\)</span> for all <span class="math notranslate nohighlight">\(t\)</span>.  Otherwise they are called <em>linearly independent</em>.
+<br></p>
+</div></blockquote>
+<p>For <span class="math notranslate nohighlight">\(n\)</span> real or complex-valued functions <span class="math notranslate nohighlight">\(f_{1}, \ldots, f_{n}\)</span>, which are <span class="math notranslate nohighlight">\(n-1\)</span> times differential over the interval <span class="math notranslate nohighlight">\(I\)</span>, the Wronskian can be used to systematically check for linear dependence.  The Wronskian is a fuction on <span class="math notranslate nohighlight">\(x\in I\)</span> defined as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+W(f_1,\ldots, f_n)(x) = 
+\det
+\begin{bmatrix}
+  f_{1}(x) &amp; f_{2}(x) &amp; \ldots &amp; f_{n}(x) \\
+  f'_{1}(x) &amp; f'_{2}(x) &amp; \ldots &amp; f'_{n}(x) \\
+  \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+  f_{1}^{(n-1)}(x) &amp; f_{2}^{(n-1)}(x) &amp; \ldots &amp; f_{n}^{(n-1)}(x)
+\end{bmatrix}
+\end{split}\]</div>
+<p>If the Wronskian is nonzero for some <span class="math notranslate nohighlight">\(x\)</span> in the intervale <span class="math notranslate nohighlight">\(I\)</span>, then the functions are linearly independent on <span class="math notranslate nohighlight">\(I\)</span>.  If the functions are linearly independent then the Wronskian is zero for all <span class="math notranslate nohighlight">\(x\)</span> in <span class="math notranslate nohighlight">\(I\)</span>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If the Wronskian is 0 this does not necessarily imply that the functions are linearly dependent.</p>
+</div>
+<p>1.   <span class="math notranslate nohighlight">\(\{\sin{x}\text{, }\cos{x}\text{, }x\sin{x}\}\)</span></p>
+<p>Utilizing SymPy to define a python function that calculates the Wronskian for a set of functions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import necessary modules</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># define symbols</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+
+<span class="c1"># define functions</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">f3</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># calculate first derivatives</span>
+<span class="n">d_f1</span> <span class="o">=</span> <span class="n">f1</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">d_f2</span> <span class="o">=</span> <span class="n">f2</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">d_f3</span> <span class="o">=</span> <span class="n">f3</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># calculate second derivatives</span>
+<span class="n">d2_f1</span> <span class="o">=</span> <span class="n">d_f1</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">d2_f2</span> <span class="o">=</span> <span class="n">d_f2</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">d2_f3</span> <span class="o">=</span> <span class="n">d_f3</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># create a symbolic matrix</span>
+<span class="n">sym_mat</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="n">f3</span><span class="p">],</span> <span class="p">[</span><span class="n">d_f1</span><span class="p">,</span> <span class="n">d_f2</span><span class="p">,</span> <span class="n">d_f3</span><span class="p">],</span> <span class="p">[</span><span class="n">d2_f1</span><span class="p">,</span> <span class="n">d2_f2</span><span class="p">,</span> <span class="n">d2_f3</span><span class="p">]])</span>
+
+<span class="c1"># calculate the Wronskian</span>
+<span class="n">wronskian</span> <span class="o">=</span> <span class="n">sym_mat</span><span class="o">.</span><span class="n">det</span><span class="p">()</span>
+
+<span class="c1"># print the result</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The Wronskian is: </span><span class="si">{</span><span class="n">wronskian</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Wronskian is: -2*sin(x)**2*cos(x) - 2*cos(x)**3
+</pre></div>
+</div>
+</div>
+</div>
+<p>The Wronskian for the system of equations is:</p>
+<div class="math notranslate nohighlight">
+\[
+W = -2\sin{x}^{2}\cos{x}-2\cos{x}^{3}
+\]</div>
+<p>Given this result is cyclic on the interval <span class="math notranslate nohighlight">\(I = [0, 2\pi{}]\)</span>, plotting the Wronskian over that domain will indicate if the result is nonzero.</p>
+<p>Utilizing NumPy and Matplotlib (along with jtplot from jupyterthemes for styling) the plot of the Wronskian over the interval <span class="math notranslate nohighlight">\(I\)</span> is shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import necessary modules</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># define domain and range</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">)</span>
+<span class="n">w</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span>
+
+<span class="c1"># map the domain to the range</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;w(x) vs. x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;w(x)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/e53cb717ca8f957da23f380c1213bf3f2d38af51afe1b7aee5c70fb487cce887.png" src="_images/e53cb717ca8f957da23f380c1213bf3f2d38af51afe1b7aee5c70fb487cce887.png" />
+</div>
+</div>
+<p>The Wronskian is in fact zero over the interval.  Therefore more investigation is required to determine if the set of functions are linearly dependent or independent. Solving for when <span class="math notranslate nohighlight">\(w(x) = 0\)</span>:</p>
+<p>Utilizing SymPy to solve for the roots of the polynomial:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import necessary modules</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># define the symbols</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+
+<span class="c1"># define the equation</span>
+<span class="n">wronskian_eq</span> <span class="o">=</span> <span class="n">Eq</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># solve the equation over the domain</span>
+<span class="n">sols</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">wronskian_eq</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">))</span>
+
+<span class="c1"># print the results</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Solutions: </span><span class="si">{</span><span class="n">sols</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Solutions: [-pi/2, pi/2]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The roots are <span class="math notranslate nohighlight">\(\big\{ \frac{-\pi}{2}, \frac{\pi}{2} \big\}\)</span>, which is evident from the previous plot.</p>
+<p>From inspection, it is clear that <span class="math notranslate nohighlight">\(\sin{x}\)</span> and <span class="math notranslate nohighlight">\(\cos{x}\)</span> are independent.  In fact they are orthogonal which is verifiable by computing the inner product <span class="math notranslate nohighlight">\(\langle \sin{x}, \cos{x} \rangle\)</span> which will result in <span class="math notranslate nohighlight">\(0\)</span>.</p>
+<p>This lends justification that <span class="math notranslate nohighlight">\(x\sin{x}\)</span> and <span class="math notranslate nohighlight">\(\cos{x}\)</span> are independent.  Turning our attention to the remaining pair, i.e., <span class="math notranslate nohighlight">\(\sin{x}\)</span> and <span class="math notranslate nohighlight">\(x\sin{x}\)</span>, it is clear that when <span class="math notranslate nohighlight">\(x=0\)</span> the pair is equivalent; however, there is no other combination of scalers (i.e., <span class="math notranslate nohighlight">\(a\)</span> or <span class="math notranslate nohighlight">\(b\)</span>) other than <span class="math notranslate nohighlight">\(0\)</span> that would make the pair equal to each other when <span class="math notranslate nohighlight">\(x \neq 0\)</span>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Answer</p>
+<p>Therefore the set of functions are linearly independent.</p>
+</div>
+<p>2.   <span class="math notranslate nohighlight">\(\{\exp{x}\text{, }x\exp{x}\text{, }x^{2}\exp{x}\}\)</span></p>
+<p>Returning to the original definition of <span class="math notranslate nohighlight">\(c_{1}f(t) + c_{2}g(t) = 0\)</span>, let <span class="math notranslate nohighlight">\(a\exp{x} + bx\exp{x} + cx^{2}\exp{x} = 0\)</span>. It is clear that scaler combinations of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> cannot be arranged to represent <span class="math notranslate nohighlight">\(x\)</span> or <span class="math notranslate nohighlight">\(x^{2}\)</span>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Answer</p>
+<p>Therefore the set of functions are linearly independent.</p>
+</div>
+<p>3.   <span class="math notranslate nohighlight">\(\{\sin^{2}{x}\text{, }\cos^{2}{x}\text{, }\cos{2x}\}\)</span></p>
+<p>Utilizing SymPy to find the Wronkskian:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import necessary modules</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># define symbols</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
+
+<span class="c1"># define functions</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">f3</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># calculate first derivatives</span>
+<span class="n">d_f1</span> <span class="o">=</span> <span class="n">f1</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">d_f2</span> <span class="o">=</span> <span class="n">f2</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">d_f3</span> <span class="o">=</span> <span class="n">f3</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># calculate second derivatives</span>
+<span class="n">d2_f1</span> <span class="o">=</span> <span class="n">d_f1</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">d2_f2</span> <span class="o">=</span> <span class="n">d_f2</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">d2_f3</span> <span class="o">=</span> <span class="n">d_f3</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># create a symbolic matrix</span>
+<span class="n">sym_mat</span> <span class="o">=</span> <span class="n">Matrix</span><span class="p">([[</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="n">f3</span><span class="p">],</span> <span class="p">[</span><span class="n">d_f1</span><span class="p">,</span> <span class="n">d_f2</span><span class="p">,</span> <span class="n">d_f3</span><span class="p">],</span> <span class="p">[</span><span class="n">d2_f1</span><span class="p">,</span> <span class="n">d2_f2</span><span class="p">,</span> <span class="n">d2_f3</span><span class="p">]])</span>
+
+<span class="c1"># calculate the Wronskian</span>
+<span class="n">wronskian</span> <span class="o">=</span> <span class="n">sym_mat</span><span class="o">.</span><span class="n">det</span><span class="p">()</span>
+
+<span class="c1"># print the result</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The Wronskian is: </span><span class="si">{</span><span class="n">wronskian</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The Wronskian is: -4*sin(x)**4*cos(2*x) + 8*sin(x)**3*sin(2*x)*cos(x) + 8*sin(x)*sin(2*x)*cos(x)**3 + 4*cos(x)**4*cos(2*x)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The Wronskian for the system of equations is
+<br>
+<br>
+$<span class="math notranslate nohighlight">\(
+W = -4\sin^{4}{x}\cos{2x} + 8\sin^{3}{x}\sin{2x}\cos{x} + 8\sin{x}\sin{2x}\cos^{3}{x} + 4\cos^{4}{x}\cos{2x}
+\)</span><span class="math notranslate nohighlight">\(
+&lt;br&gt;
+Given this result is cyclic on the interval \)</span>I = [0, 2\pi{}]$, plotting the Wronskian over that domain will indicate if the result is nonzero.</p>
+<p>Utilizing NumPy and Matplotlib (along with jtplot from jupyterthemes for styling) the plot of the Wronskian over the interval <span class="math notranslate nohighlight">\(I\)</span> is shown below:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import necessary modules</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># define domain and range</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mf">0.001</span><span class="p">)</span>
+<span class="n">w</span> <span class="o">=</span> <span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">8</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="mi">8</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># map the domain to the range</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;w(x) vs. x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;w(x)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/65e8c13fa48599f0907e0b3c8e5549632b4d7b8fb54ec02dd0df97d053d2778b.png" src="_images/65e8c13fa48599f0907e0b3c8e5549632b4d7b8fb54ec02dd0df97d053d2778b.png" />
+</div>
+</div>
+<p>The Wronskian is never zero over the interval.  In fact the Wronskian reduces to:</p>
+<div class="math notranslate nohighlight">
+\[
+W = 4
+\]</div>
+<p>The reduction is left to the reader as an exercise in trigonometric identities.</p>
+<div class="tip admonition">
+<p class="admonition-title">Answer</p>
+<p>Therefore the set of functions are linearly independent.</p>
+</div>
+</section>
+</section>
+<section id="problem-3">
+<h2>Problem 3<a class="headerlink" href="#problem-3" title="Permalink to this heading">#</a></h2>
+<p>For</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+x = 
+\begin{bmatrix}
+  x_1 \\
+  x_2 \\
+  x_3
+\end{bmatrix}
+\qquad
+y = 
+\begin{bmatrix}
+  y_1 \\
+  y_2 \\
+  y_3
+\end{bmatrix}
+\end{split}\]</div>
+<p>determine which of the following are inner products for <span class="math notranslate nohighlight">\(\mathbb{R}^{3}\)</span>.</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\langle\mathbf{x}\text{, }\mathbf{y}\rangle = x_{1}y_{1} + x_{3}y_{3}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\langle\mathbf{x}\text{, }\mathbf{y}\rangle = x_{1}y_{1} - x_{2}y_{2} + x_{3}y_{3}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\langle\mathbf{x}\text{, }\mathbf{y}\rangle = 2x_{1}y_{1} + x_{2}y_{2} + 4x_{3}y_{3}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\langle\mathbf{x}\text{, }\mathbf{y}\rangle = x^{2}_{1}y^{2}_{1} + x^{2}_{2}y^{2}_{2} + x^{2}_{3}y^{2}_{3}\)</span></p></li>
+</ol>
+<section id="problem-3-calculations">
+<h3>Problem 3 calculations<a class="headerlink" href="#problem-3-calculations" title="Permalink to this heading">#</a></h3>
+<p>From <a class="reference external" href="https://www.bing.com/ck/a?!&amp;&amp;p=133d2c442790ab70JmltdHM9MTcwNTM2MzIwMCZpZ3VpZD0zYmVjNDg1Ny1iYWEyLTY1YzItMDQwMy01YmRiYmJlZDY0YTUmaW5zaWQ9NTE4Nw&amp;ptn=3&amp;ver=2&amp;hsh=3&amp;fclid=3bec4857-baa2-65c2-0403-5bdbbbed64a5&amp;psq=inner+product+spaces+pdf+11-12-2014&amp;u=a1aHR0cHM6Ly9zaXRlcy5taWxsZXJzdmlsbGUuZWR1L2Jpa2VuYWdhLy9saW5lYXItYWxnZWJyYS9pbm5lci1wcm9kdWN0cy9pbm5lci1wcm9kdWN0cy5wZGY&amp;ntb=1">this reference</a>:</p>
+<blockquote>
+<div><p><strong>Definition</strong>: Let <span class="math notranslate nohighlight">\(V\)</span> be a vector space over <span class="math notranslate nohighlight">\(F\)</span>, where <span class="math notranslate nohighlight">\(F = \mathbb{R}\text{ or }\mathbb{C}\)</span>. An inner product on <span class="math notranslate nohighlight">\(V\)</span> is a function <span class="math notranslate nohighlight">\(\langle\cdot\text{,}\cdot\rangle\text{: }V \times{} V\rightarrow F\)</span> which satisifies:
+<br></p>
+<ol class="arabic simple">
+<li><p>Linearity: <span class="math notranslate nohighlight">\(\langle{}ax+y\text{, }z\rangle = a\langle{}x\text{, }z\rangle + \langle{}y\text{, }z\rangle\text{ for }x\text{, }y\text{, z}\in V\text{, }a \in F\)</span></p></li>
+<li><p>Symmetry: <span class="math notranslate nohighlight">\(\langle{}x\text{, }y\rangle = \overline{\langle{}y\text{, }x\rangle}\text{, for }x\text{, }y \in V\)</span>
+<br></p></li>
+<li><p>Positive-definiteness: If <span class="math notranslate nohighlight">\(x\neq 0\text{, then }\langle{}x\text{, }x\rangle \in \mathbb{R} \text{ and }\langle{}x\text{, }x\rangle\gt 0\)</span>
+<br></p></li>
+</ol>
+</div></blockquote>
+<p>1.   <span class="math notranslate nohighlight">\(\langle\mathbf{x}\text{, }\mathbf{y}\rangle = x_{1}y_{1} + x_{3}y_{3}\)</span></p>
+<p>Check for linearity in the first slot, we don’t have to check the second slot because we’ll check for symmetry if this property holds:</p>
+<p>Since <span class="math notranslate nohighlight">\(a\langle{}x\text{, }y\rangle = \langle{}ax\text{, }y\rangle\)</span> to ensure linearity of the entire inner product space…</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+  \langle{}ax\text{, }y\rangle &amp; = a(x_{1}y_{1} + x_{3}y_{3})\\
+  &amp; = ax_{1}y_{1} + ax_{3}y_{3}
+\end{align}
+\end{split}\]</div>
+<p>As long as the property <span class="math notranslate nohighlight">\(a\langle{}x\text{, }y\rangle = \langle{}ax\text{, }y\rangle\)</span> holds true, then scaler multiplication is satisifed.</p>
+<p>Checking for additivity:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+  \langle{}x_1 + x_2\text{, }y\rangle &amp;= (x_1 + x_2)y_1 + x_{3}y_{3}\\
+  &amp; = x_{1}y_{1} + x_{2}y_{1} + x_{3}y_{3}\\
+\end{align}
+\end{split}\]</div>
+<p>From the inner product property <span class="math notranslate nohighlight">\(\langle{}x_1 + x_2\text{, }y\rangle = \langle{}x_1\text{, }y\rangle{} + \langle{x_2}\text{, }y\rangle\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+\langle{}x_1\text{, }y\rangle + \langle{}x_2\text{, }y\rangle = x_{1}y_{1} + x_{3}y_{3} + x_{2}y_{1} + x_{3}y_{3}
+\]</div>
+<p>Since:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+  x_{1}y_{1} + x_{2}y_{1} + x_{3}y_{3} &amp; \neq x_{1}y_{1} + x_{3}y_{3} + x_{2}y_{1} + x_{3}y_{3}\\
+  \langle{}x_1 + x_{2}\text{, }y\rangle &amp; \neq \langle{}x_1\text{, }y\rangle + \langle{}x_{2}\text{, }y\rangle
+\end{align}
+\end{split}\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Answer</p>
+<p>Therefore this is not an inner product space for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.</p>
+</div>
+<p>2.   <span class="math notranslate nohighlight">\(\langle\mathbf{x}\text{, }\mathbf{y}\rangle = x_{1}y_{1} - x_{2}y_{2} + x_{3}y_{3}\)</span></p>
+<p>Checking for scaler multiplicity:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+  \langle{}ax\text{, }y\rangle &amp; = ax_{1}y_1 - ax_{2}y_2 + ax_{3}y_3\\
+  &amp; =a\langle{}x\text{, }y\rangle \\
+  &amp; = a(x_{1}y_1 - x_{2}y_2 + x_{3}y_3)
+\end{align}
+\end{split}\]</div>
+<p>Therefore scaler multiplicity is satisifed.</p>
+<p>Checking for additivity:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+  \langle{}x_1 + x_2\text{, }y\rangle &amp; = (x_1 + x_2)y_1 - (x_1 +x_2)y_2 + (x_1 + x_2)y_3\\
+  &amp; = x_{1}y_1 + x_{2}y_1 - x_{1}y_2 - x_{2}y_2 + x_{1}y_3 + x_{2}y_3\\
+  &amp; = \langle{}x_1\text{, }y\rangle + \langle{}x_2\text{, }y\rangle\\
+  &amp; = (x_{1}y_1 - x_{1}y_2 + x_{1}y_3) + (x_{2}y_1 - x_{2}y_2 + x_{2}y_3) \\
+  &amp; = x_{1}y_1 + x_{2}y_1 - x_{1}y_2 - x_{2}y_2 + x_{1}y_3 + x_{2}y_3
+\end{align}
+\end{split}\]</div>
+<p>Therefore additivity is satisifed.</p>
+<p>Checking for symmetry:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+  \langle{}x\text{, }y\rangle &amp; = x_{1}y_1 - x_{2}y_2 + x_{3}y_3\\
+    &amp; = \langle{}y\text{, }x\rangle \\
+  &amp; = y_{1}x_1 - y_{2}x_2 + y_{3}x_3
+\end{align}
+\end{split}\]</div>
+<p>Therefore symmetry is satisifed.</p>
+<p>Checking for positive definiteness:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle{}x\text{, }x\rangle = x_{1}^2 - x_{2}^2 + x{3}^2
+\]</div>
+<p>If <span class="math notranslate nohighlight">\(x_{2}^2 \gt x_{1}^{2} + x_{3}^2\)</span> then the inner product is not positive definite.</p>
+<div class="tip admonition">
+<p class="admonition-title">Answer</p>
+<p>Therefore this is not an inner product space for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.</p>
+</div>
+<p>3.   <span class="math notranslate nohighlight">\(\langle\mathbf{x}\text{, }\mathbf{y}\rangle = 2x_{1}y_{1} + x_{2}y_{2} + 4x_{3}y_{3}\)</span></p>
+<p>Checking for scaler multiplicity:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+  \langle{}ax\text{, }y\rangle &amp; = 2ax_{1}y_1 + ax_{2}y_2 + 4ax_{3}y_3\\
+  &amp; =a\langle{}x\text{, }y\rangle \\
+  &amp; = a(2x_{1}y_1 + x_{2}y_2 + 4x_{3}y_3)
+\end{align}
+\end{split}\]</div>
+<p>Therefore scaler multiplicity is satisfied.</p>
+<p>Checking for additivity:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+  \langle{}x_1 + x_2\text{, }y\rangle &amp; = 2(x_1 + x_2)y_1 + (x_1 + x_2)y_2 + 4(x_1 + x_2)y_3\\
+  &amp; = 2x_{1}y_1 + 2x_{2}y_1 + x_{1}y_2 + x_{2}y_2 + 4x_{1}y_3 + 4x_{2}y_3\\
+  &amp; = \langle{}x_1\text{, }y\rangle + \langle{}x_2\text{, }y\rangle\\
+  &amp; = (2x_{1}y_1 + x_{1}y_2 + 4x_{1}y_3) + (2x_{2}y_1 + x_{2}y_2 + 4x_{2}y_3) \\
+  &amp; = 2x_{1}y_1 + 2x_{2}y_1 + x_{1}y_2 + x_{2}y_2 + 4x_{1}y_3 + 4x_{2}y_3
+\end{align}
+\end{split}\]</div>
+<p>Therefore additivity is satisifed.</p>
+<p>Checking for symmetry:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+  \langle{}x\text{, }y\rangle &amp; = 2x_{1}y_1 + x_{2}y_2 + 4x_{3}y_3\\
+    &amp; = \langle{}y\text{, }x\rangle \\
+  &amp; = 2y_{1}x_1 + y_{2}x_2 + 4y_{3}x_3
+\end{align}
+\end{split}\]</div>
+<p>Therefore symmetry is satisifed.</p>
+<p>Checking for positive definiteness:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle{}x\text{, }x\rangle = 2x_{1}^2 + x_{2}^2 + 4x_{3}^2
+\]</div>
+<p>This expression is equal to 0 only when <span class="math notranslate nohighlight">\(x_1 = x_2 = x_3 = 0\)</span> and otherwise is always nonnegative so positive definiteness is satisifed.</p>
+<div class="tip admonition">
+<p class="admonition-title">Answer</p>
+<p>Therefore this is an inner product space for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.</p>
+</div>
+<p>4.  <span class="math notranslate nohighlight">\(\langle\mathbf{x}\text{, }\mathbf{y}\rangle = x^{2}_{1}y^{2}_{1} + x^{2}_{2}y^{2}_{2} + x^{2}_{3}y^{2}_{3}\)</span></p>
+<p>At this point for me it is clear that this inner product satisfies multiplicity, symmetry, and positive definiteness.  I’ll check for additivity explicitly:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+  \langle{}x_1 + x_2\text{, }y\rangle &amp; = (x_1 + x_2)^{2}y_{1}^{2} + (x_1 +x_2)^{2}y_{2}^{2} + (x_1 + x_2)^{2}y_{3}^{2}\\
+  &amp; = (x_{1}^{2} + 2x_{1}x_{2} + x_{2}^{2})y_{1}^{2} + (x_{1}^{2} + 2x_{1}x_{2} + x_{2}^{2})y_{2}^{2} + (x_{1}^{2} + 2x_{1}x_{2} + x_{2}^{2})y_{3}^{2}
+\end{align}
+\end{split}\]</div>
+<p>Let <span class="math notranslate nohighlight">\(z := x_{1}^{2} + 2x_{1}x_{2} + x_{2}^{2}\)</span>, then</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align}
+  \langle{}x_1 + x_2\text{, }y\rangle &amp; = zy_{1}^{2} + zy_{2}^{2} + zy_{3}^{2} \\
+  &amp; \neq \langle{}x_1\text{, }y\rangle + \langle{}x_2\text{, }y\rangle\\
+  &amp; = (x_{1}^{2}y_1^{2} + x_{1}^{2}y_2^{2} + x_{1}^{2}y_3^{2}) + (x_{2}^{2}y_1^{2} + x_{2}^{2}y_{2}^{2} + x_{2}^{2}y_{3}^{2}) \\
+  &amp; = (x_{1}^{2} + x_{2}^{2})y_{1}^{2} + (x_{1}^{2} + x_{2}^{2})y_{2}^{2} + (x_{1}^{2} + x_{2}^{2})y_{3}^{2}
+\end{align}
+\end{split}\]</div>
+<p>Additivity is not satisfied.</p>
+<div class="tip admonition">
+<p class="admonition-title">Answer</p>
+<p>Therefore this is not an inner product space for <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>.</p>
+</div>
+</section>
+</section>
+<section id="problem-4">
+<h2>Problem 4<a class="headerlink" href="#problem-4" title="Permalink to this heading">#</a></h2>
+<p>Show the following basis functions are orthogonal to each other in the interval <span class="math notranslate nohighlight">\(x \in [-\pi\text{, }\pi]\)</span>.  In the following <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(n\)</span> are nonzero integer numbers.</p>
+<ol class="arabic simple">
+<li><p>Fourier modes of <span class="math notranslate nohighlight">\(\{\sin{(mx)}\}\)</span> and <span class="math notranslate nohighlight">\(\{\sin{(nx)}\}\)</span> when <span class="math notranslate nohighlight">\(n \neq m\)</span>.</p></li>
+<li><p>Fourier modes of <span class="math notranslate nohighlight">\(\{\cos{(mx)}\}\)</span> and <span class="math notranslate nohighlight">\(\{\cos{(nx)}\}\)</span> when <span class="math notranslate nohighlight">\(n \neq m\)</span>.</p></li>
+<li><p>Fourier modes of <span class="math notranslate nohighlight">\(\{\sin{(mx)}\}\)</span> and <span class="math notranslate nohighlight">\(\{\cos{(nx)}\}\)</span>.</p></li>
+</ol>
+<section id="problem-4-calculations">
+<h3>Problem 4 calculations<a class="headerlink" href="#problem-4-calculations" title="Permalink to this heading">#</a></h3>
+<p>For these problems, we need to take the inner product of the functions over the given interval and show that under the given conditions this result is equal to zero thus demonstrating orthogonality.</p>
+<p>For all three sub-problems I’ll be using this python code from the SymPy module to make my life a little easier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import necessary modules</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">def</span> <span class="nf">ip_func</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">):</span>
+    <span class="c1"># define symbols</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x m n&#39;</span><span class="p">)</span>
+
+    <span class="c1"># calculate the inner product symbolically</span>
+    <span class="n">ip_result</span> <span class="o">=</span> <span class="n">integrate</span><span class="p">(</span><span class="n">f1</span> <span class="o">*</span> <span class="n">f2</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="n">pi</span><span class="p">,</span> <span class="n">pi</span><span class="p">))</span>
+    <span class="n">ip_simplified</span> <span class="o">=</span> <span class="n">simplify</span><span class="p">(</span><span class="n">ip_result</span><span class="p">)</span>
+    
+    <span class="c1"># return the result</span>
+    <span class="k">return</span> <span class="n">ip_simplified</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>1.   Fourier modes of {<span class="math notranslate nohighlight">\(\sin{(mx)}\)</span>} and {<span class="math notranslate nohighlight">\(\sin{(nx)}\)</span>} when <span class="math notranslate nohighlight">\(n \neq m\)</span>.</p>
+<p>Evaluate the inner product over the interval:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle{}\sin{(mx)}\text{, }\sin{(nx)}\rangle = \int\limits_{-\pi}^\pi\sin{(mx)}\sin{(nx)}\,dx
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import necessary modules</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x m n&#39;</span><span class="p">)</span>
+
+<span class="c1"># define the functions</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">m</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># evaluate the inner product</span>
+<span class="n">ip_func</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \begin{cases} 0 &amp; \text{for}\: m = 0 \wedge n = 0 \\- \pi + \frac{\sin{\left(2 \pi n \right)}}{2 n} &amp; \text{for}\: \left(m = 0 \wedge n = 0\right) \vee m = - n \\\pi - \frac{\sin{\left(2 \pi n \right)}}{2 n} &amp; \text{for}\: \left(m = 0 \wedge n = 0\right) \vee m = n \\\frac{2 \left(- m \sin{\left(\pi n \right)} \cos{\left(\pi m \right)} + n \sin{\left(\pi m \right)} \cos{\left(\pi n \right)}\right)}{m^{2} - n^{2}} &amp; \text{otherwise} \end{cases}\end{split}\]</div>
+</div>
+</div>
+<p>The last term in the piece-wise expression is what we’ll evaluate because that complies with the problem constraints (i.e., <span class="math notranslate nohighlight">\(m\text{, } n \in \mathbb{Z} \text{, } m\text{, }n \gt 0 \text{, and }m\neq n\)</span>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define abritrary values for m and n subject to constraints</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="c1"># plug and chug</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="n">m</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">pi</span><span class="o">*</span><span class="n">n</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">pi</span><span class="o">*</span><span class="n">m</span><span class="p">)</span> <span class="o">+</span> <span class="n">n</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">pi</span><span class="o">*</span><span class="n">m</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">pi</span><span class="o">*</span><span class="n">n</span><span class="p">))</span><span class="o">/</span><span class="p">(</span><span class="n">m</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Answer</p>
+<p>The inner product is zero therefore the Fourier modes are orthogonal subject to the constraints.</p>
+</div>
+<p>2.   Fourier modes of {<span class="math notranslate nohighlight">\(\cos{(mx)}\)</span>} and {<span class="math notranslate nohighlight">\(\cos{(nx)}\)</span>} when <span class="math notranslate nohighlight">\(n \neq m\)</span>.</p>
+<p>Evaluate the inner product over the interval:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle{}\cos{(mx)}\text{, }\cos{(nx)}\rangle = \int\limits_{-\pi}^\pi\cos{(mx)}\cos{(nx)}\,dx
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import necessary modules</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x m n&#39;</span><span class="p">)</span>
+
+<span class="c1"># define the functions</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">m</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># evaluate the inner product</span>
+<span class="n">ip_func</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">)</span>
+
+<span class="c1"># evaluate the inner product</span>
+<span class="n">ip_func</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\begin{split}\displaystyle \begin{cases} 2 \pi &amp; \text{for}\: m = 0 \wedge n = 0 \\\pi + \frac{\sin{\left(2 \pi n \right)}}{2 n} &amp; \text{for}\: \left(m = 0 \wedge n = 0\right) \vee m = - n \vee m = n \\\frac{2 \left(m \sin{\left(\pi m \right)} \cos{\left(\pi n \right)} - n \sin{\left(\pi n \right)} \cos{\left(\pi m \right)}\right)}{m^{2} - n^{2}} &amp; \text{otherwise} \end{cases}\end{split}\]</div>
+</div>
+</div>
+<p>The last term in the piece-wise expression is what we’ll evaluate because that complies with the problem constraints (i.e., <span class="math notranslate nohighlight">\(m\text{, } n \in \mathbb{Z} \text{, } m\text{, }n \gt 0 \text{, and }m\neq n\)</span>).</p>
+<p>Note that this expression is the negative of the expression in sub-problem 1 and clearly the negative of 0 is 0.</p>
+<div class="tip admonition">
+<p class="admonition-title">Answer</p>
+<p>The inner product is zero therefore the Fourier modes are orthogonal subject to the constraints.</p>
+</div>
+<p>3.   Fourier modes of {<span class="math notranslate nohighlight">\(\sin{(mx)}\)</span>} and {<span class="math notranslate nohighlight">\(\cos{(nx)}\)</span>}.</p>
+<p>Evaluate the inner product over the interval:</p>
+<div class="math notranslate nohighlight">
+\[
+\langle{}\sin{(mx)}\text{, }\cos{(nx)}\rangle = \int\limits_{-\pi}^\pi\sin{(mx)}\cos{(nx)}\,dx
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import necessary modules</span>
+<span class="kn">from</span> <span class="nn">sympy</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">x</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="n">symbols</span><span class="p">(</span><span class="s1">&#39;x m n&#39;</span><span class="p">)</span>
+
+<span class="c1"># define the functions</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">m</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">cos</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># evaluate the inner product</span>
+<span class="n">ip_func</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">)</span>
+
+<span class="c1"># evaluate the inner product</span>
+<span class="n">ip_func</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_latex math notranslate nohighlight">
+\[\displaystyle 0\]</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Answer</p>
+<p>The inner product is zero therefore the Fourier modes are orthogonal subject to the constraints.</p>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="me_2061_lecture_1.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lecture 1: Linear algebra preliminaries</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1">Problem 1</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-1-calculations">Problem 1 calculations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2">Problem 2</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-2-calculations">Problem 2 calculations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3">Problem 3</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-3-calculations">Problem 3 calculations</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4">Problem 4</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-4-calculations">Problem 4 calculations</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Jacob Cunningham
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+MIT License
+</p>
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
